@@ -7,7 +7,44 @@
   <title>Book library</title>
 </head>
 <body>
-  test
+  <nav>logo</nav>
+  <header>
+  </header>
+  <section class="add-book">
+    <form action="/addbook" method="POST">
+      <label for="bname">Book Name:</label><br>
+      <input type="text" id="bname" name="bname" value="" placeholder="book name"><br>
+
+      <label for="bauthor">Book author:</label><br>
+      <input type="text" id="bauthor" name="bauthor" value=""placeholder="book author"><br>
+
+      <label for="bpublisher">Book publisher:</label><br>
+      <input type="text" id="bpublisher" name="bpublisher" value="" placeholder="book publisher"><br>
+
+      <input type="submit" value="Submit">
+    </form> 
+  </section>
+
+  <section class="display-book">
+    <article>
+      <img>
+      <h2>Book Name</h2>
+      <h3>Book Author</h3>
+      <h3>Book publisher</h3>
+    </article>
+    <article>
+      <img>
+      <h2>Book Name</h2>
+      <h3>Book Author</h3>
+      <h3>Book publisher</h3>
+    </article>
+    <article>
+      <img>
+      <h2>Book Name</h2>
+      <h3>Book Author</h3>
+      <h3>Book publisher</h3>
+    </article>
+  </section>
   <script src="./js/dom.js"></script>
 </body>
 </html>

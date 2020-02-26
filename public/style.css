@@ -3,3 +3,38 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+nav {
+  padding: 15px 0 15px 20px;
+  background-color: rgba(83, 76, 76, 0.767);
+  color:white;
+}
+
+header {
+  height: 400px;
+  background-color: steelblue;
+}
+
+.add-book {
+  text-align: center;
+  padding: 30px 0;
+  background-color: yellow;
+}
+
+.add-book input {
+  margin-top:8px;
+  margin-bottom: 10px;
+}
+
+.display-book {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.display-book article {
+  width: 20%;
+  margin: 25px;
+  background-color: teal;
+}
+
