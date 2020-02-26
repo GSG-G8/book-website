@@ -1,10 +1,9 @@
 BEGIN;
 
-DROP TABLE IF EXISTS books, authors, publishers authors_books CASCADE;
+DROP TABLE IF EXISTS books, authors, publishers, authors_books CASCADE;
 
 CREATE TABLE books (
     id SERIAL PRIMARY KEY,
-    publisher_id INTEGER REFERENCES publishers(id),
     title VARCHAR(255) NOT NULL,
     category VARCHAR(255),
     price VARCHAR(50),
@@ -12,6 +11,7 @@ CREATE TABLE books (
     reserved BOOLEAN,
     thumbnail TEXT
 );
+
 
 CREATE TABLE authors (
     id SERIAL PRIMARY KEY,
@@ -23,18 +23,20 @@ CREATE TABLE publishers (
     id SERIAL PRIMARY KEY,
     country VARCHAR(200),
     name VARCHAR(200),
-    book_id INTEGER REFERENCES KEY books(id)
+    book_id INTEGER REFERENCES books(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE authors_books (
-    book_id INTEGER REFERENCES KEY books(id),
-    author_id INTEGER REFERENCES KEY authors(id)
+    book_id INTEGER REFERENCES books(id) ON UPDATE CASCADE,
+    author_id INTEGER REFERENCES authors(id) ON UPDATE CASCADE
 );
 
-INSERT INTO books (publisher_id, title, category, price, language, reserved, thumbnail) VALUES 
-(1, 'The Hobbit', 'Fantasy', '20$', 'English', false, 'http://books.google.com/books/content?id=OlCHcjX0RT4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
-(2, 'The Two Towers', 'Fiction', '30$', 'English', false, 'http://books.google.com/books/content?id=2jf8Tna_MxMC&printsec=frontcover&img=1&zoom=1&source=gbs_api'),
-(3, 'Heart of Darkness', 'Fiction', '40$', 'English', false, 'http://books.google.com/books/content?id=8m5qDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api')
+
+
+INSERT INTO books (title, category, price, language, reserved, thumbnail) VALUES 
+('The Hobbit', 'Fantasy', '20$', 'English', false, 'http://books.google.com/books/content?id=OlCHcjX0RT4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+('The Two Towers', 'Fiction', '30$', 'English', false, 'http://books.google.com/books/content?id=2jf8Tna_MxMC&printsec=frontcover&img=1&zoom=1&source=gbs_api'),
+('Heart of Darkness', 'Fiction', '40$', 'English', false, 'http://books.google.com/books/content?id=8m5qDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api')
 ;
 
 INSERT INTO authors (first_name, last_name) VALUES 
