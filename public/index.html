@@ -1,62 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <title>Book library</title>
-</head>
-<body>
-  <nav>logo</nav>
-  <header>
-  </header>
-  <section class="add-book">
-    <form action="/addbook" method="POST">
-      <label for="bname">Book Name:</label><br>
-      <input type="text" id="bname" name="bname" value="" placeholder="name"><br>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Book library</title>
+  </head>
+  <body>
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="logo">
+            <img src="./footer-2.png" alt="logo" />
+          </div>
+          <div class="contact">Free Call <span>123-456-7890</span></div>
+        </div>
+      </div>
 
-      <label for="bauthor">Book author:</label><br>
-      <input type="text" id="bauthor" name="bauthor" value=""placeholder="author"><br>
+      <div class="content">
+        <div class="container">
+          <div class="desc">
+            <h1>Find Books For All Ages</h1>
+            <p>Your favorite bookshelf!</p>
+            <a href="#books">Discover your next books</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-      <label for="bpublisher">Book publisher:</label><br>
-      <input type="text" id="bpublisher" name="bpublisher" value="" placeholder="publisher"><br>
+    <section class="add-books">
+      <div class="container">
+        <h2>Add <span>Books</span></h2>
+      <form action="/addbook">
+        <div class="form-group">
+          <div>
+            <div class="row">
+              <label for="title">Title</label>
+              <input type="text" id="title">
+            </div>
+            <div class="row">
+              <label for="cover">Cover url</label>
+              <input type="text" id="cover">
+            </div>
+            <div class="row">
+              <label for="category">Category</label>
+              <input type="text" id="category">
+            </div>
+          </div>
+          
+          <div>
+            <div class="row">
+              <label for="author">Author</label>
+              <input type="text" id="author">
+            </div>
+            <div class="row">
+              <label for="publisher">Publisher</label>
+              <input type="text" id="publisher">
+            </div>
+            <div class="row">
+              <label for="country">Publisher country</label>
+              <input type="text" id="country">
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="add-btn">Add book</button>
+      </form>
+      </div>
+    </section>
 
-      <label for="bcategory">Category:</label><br>
-      <input type="text" id="bcategory" name="bcategory" value="" placeholder="category"><br>
+    <section id="books">
+      <div class="container">
+        <h2><span>Discover</span> Books</h2>
+        <div class="search-bar">
+          <label for="search">search</label>
+          <input type="text" class="query-search" name="search-input" placeholder="Enter book title">
+          <button class="search-btn">search</button>
+        </div>
 
-      <label for="bPrice">Price</label><br>
-      <input type="text" id="bPrice" name="bPrice" value="" placeholder="Price"><br>
-
-      <label for="blanguage">language</label><br>
-      <input type="text" id="blanguage" name="blanguage" value="" placeholder="language"><br>
-
-      <label for="bimage">image url</label><br>
-      <input type="text" id="bimage" name="bimage" value="" placeholder="image"><br>
-
-      <input type="submit" value="Submit">
-    </form> 
-  </section>
-
-  <section class="display-book">
-    <article>
-      <img>
-      <h2>Book Name</h2>
-      <h3>Book Author</h3>
-      <h3>Book publisher</h3>
-    </article>
-    <article>
-      <img>
-      <h2>Book Name</h2>
-      <h3>Book Author</h3>
-      <h3>Book publisher</h3>
-    </article>
-    <article>
-      <img>
-      <h2>Book Name</h2>
-      <h3>Book Author</h3>
-      <h3>Book publisher</h3>
-    </article>
-  </section>
-  <script src="./js/dom.js"></script>
-</body>
+        <div class="books_container">
+          <div class="item">
+            <div class="cover">
+              <img src="https://cdn.pastemagazine.com/www/system/images/photo_albums/hobbit-book-covers/large/photo_14601_0-5.jpg?1384968217" alt="the hobbit">
+            </div>
+            <div class="details">
+              <h3>The Hobbit</h3>
+              <p><span>Author:</span> J.R.R. Tolkien</p>
+              <p><span>Category:</span> Fantasy</p>
+              <p><span>Publisher:</span> Houghton Mifflin Harcourt</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./js/dom.js"></script>
+  </body>
 </html>
