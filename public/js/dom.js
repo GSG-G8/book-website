@@ -48,7 +48,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const container = document.querySelector('.books_container');
         container.textContent = '';
         data.forEach((element) => renderBook(element));
-        console.log(data);
       }
     });
 });
