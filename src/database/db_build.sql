@@ -1,13 +1,17 @@
 BEGIN;
 
-DROP TABLE IF EXISTS books, authors, publishers, authors_books CASCADE;
+DROP TABLE IF EXISTS publishers, books, authors, authors_books CASCADE;
+
+CREATE TABLE publishers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(200)
+);
 
 CREATE TABLE books (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
+    publisher_id INTEGER REFERENCES publishers(id) ON UPDATE CASCADE,
     category VARCHAR(255),
-    price VARCHAR(50),
-    language VARCHAR(100),
     reserved BOOLEAN,
     thumbnail TEXT
 );
@@ -15,16 +19,9 @@ CREATE TABLE books (
 
 CREATE TABLE authors (
     id SERIAL PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255)
+    name VARCHAR(255)
 );
 
-CREATE TABLE publishers (
-    id SERIAL PRIMARY KEY,
-    country VARCHAR(200),
-    name VARCHAR(200),
-    book_id INTEGER REFERENCES books(id) ON UPDATE CASCADE
-);
 
 CREATE TABLE authors_books (
     book_id INTEGER REFERENCES books(id) ON UPDATE CASCADE,
@@ -33,27 +30,37 @@ CREATE TABLE authors_books (
 
 
 
-INSERT INTO books (title, category, price, language, reserved, thumbnail) VALUES 
-('The Hobbit', 'Fantasy', '20$', 'English', false, 'http://books.google.com/books/content?id=OlCHcjX0RT4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
-('The Two Towers', 'Fiction', '30$', 'English', false, 'http://books.google.com/books/content?id=2jf8Tna_MxMC&printsec=frontcover&img=1&zoom=1&source=gbs_api'),
-('Heart of Darkness', 'Fiction', '40$', 'English', false, 'http://books.google.com/books/content?id=8m5qDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api')
-;
 
-INSERT INTO authors (first_name, last_name) VALUES 
-('J.R.R.', 'Tolkien'),
-('Joseph',  'Conrad')
-;
+INSERT INTO authors (name) VALUES 
+('J.R.R. Tolkien'),
+('Joseph Conrad');
 
-INSERT INTO publishers (country, name, book_id) VALUES 
-('Uniited States', 'Houghton Mifflin Harcourt', 1),
-('UK', 'Del Rey', 2),
-('Ukraine', 'Strelbytskyy Multimedia Publishing', 3)
+INSERT INTO publishers (name) VALUES 
+('Houghton Mifflin Harcourt'),
+('Del Rey'),
+('Strelbytskyy Multimedia Publishing');
+
+INSERT INTO books (title, publisher_id, category, reserved, thumbnail) VALUES 
+('The Hobbit', 1, 'Fantasy', false, 'http://books.google.com/books/content?id=OlCHcjX0RT4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+('The Two Towers', 2, 'Fiction', false, 'http://books.google.com/books/content?id=2jf8Tna_MxMC&printsec=frontcover&img=1&zoom=1&source=gbs_api'),
+('Heart of Darkness', 3, 'Fiction', false, 'http://books.google.com/books/content?id=8m5qDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+('The Hobbit 1', 1, 'Fantasy', false, 'http://books.google.com/books/content?id=OlCHcjX0RT4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+('The Two Towers 1', 2, 'Fiction', false, 'http://books.google.com/books/content?id=2jf8Tna_MxMC&printsec=frontcover&img=1&zoom=1&source=gbs_api'),
+('Heart of Darkness 1', 3, 'Fiction', false, 'http://books.google.com/books/content?id=8m5qDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+('The Hobbit 2', 1, 'Fantasy', false, 'http://books.google.com/books/content?id=OlCHcjX0RT4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+('The Two Towers 2', 2, 'Fiction', false, 'http://books.google.com/books/content?id=2jf8Tna_MxMC&printsec=frontcover&img=1&zoom=1&source=gbs_api'),
+('Heart of Darkness 2', 3, 'Fiction', false, 'http://books.google.com/books/content?id=8m5qDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api')
 ;
 
 INSERT INTO authors_books (book_id, author_id) VALUES 
 (1, 1),
 (2, 1),
-(3, 2)
-;
+(3, 2),
+(4, 1),
+(5, 1),
+(6, 2),
+(7, 1),
+(8, 1),
+(9, 2);
 
 COMMIT;
