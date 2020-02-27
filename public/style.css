@@ -1,41 +1,221 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: 'PT Sans';
+  font-weight: 400;
+  transition: 0.2s;
 }
 
-nav {
-  padding: 15px 0 15px 20px;
-  background-color: rgba(83, 76, 76, 0.767);
-  color:white;
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 76%;
+  margin: auto;
+}
+
+section {
+  padding: 50px 0;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+h2 span {
+  border-bottom: 2px solid #de3241;
 }
 
 header {
-  height: 400px;
-  background-color: steelblue;
+  height: 100vh;
 }
 
-.add-book {
-  text-align: center;
-  padding: 30px 0;
-  background-color: yellow;
+header .top-bar {
+  height: 10%;
 }
 
-.add-book input {
-  margin-top:8px;
-  margin-bottom: 10px;
-}
-
-.display-book {
+header .top-bar .container {
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .contact {
+  color: #797979;
+
+}
+
+header .contact span {
+  color: #de3241;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+header .content {
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  url("./slide1-1.jpg") no-repeat center center;
+  background-size: cover;
+  height: 90%;
+  position: relative;
+}
+
+header .content .desc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.display-book article {
-  width: 20%;
-  margin: 25px;
-  background-color: teal;
+header .content h1 {
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 37px;
+  color: #ffffff;
+}
+
+header .content p {
+  color: #ffffff;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin: 20px 0;
+} 
+
+header .content a {
+  display: inline-block;
+  width: 340px;
+  padding: 8px 20px 10px 20px;
+  background-color: #de3241;
+  color: #fff;
+  border-radius: 9px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.add-books {
+  background-color: #e6e6e6; 
+}
+
+.add-books .form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-books .form-group > div {
+  width: 45%;
+}
+
+.add-books form .row {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  align-items: baseline;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.add-books form .row label {
+  color: #797979;
+}
+
+.add-books form .row input {
+  padding: 5px;
+  font-size: 15px;
+  outline: none;
+}
+
+.add-books form .row input:focus {
+  border: 2px solid #de3241;
+}
+
+.add-books form .add-btn {
+  width: 120px;
+  padding: 5px;
+  border-radius: 8px;
+  font-size: 15px;
+  text-transform: uppercase;
+  border: 2px solid #de3241;
+  color: #ffffff;
+  background-color: #de3241;
+  cursor: pointer;
+  letter-spacing: 2px;
+  margin: 0 auto;
+  margin-top: 35px;
+  display: block;
+}
+
+#books .search-bar {
+  display: flex;
+  justify-content: center;
+}
+
+#books .search-bar  label {
+  display: none;
+}
+
+#books .search-bar .query-search {
+  padding: 10px;
+  border-radius: 8px;
+  width: 400px;
+  border: none;
+  font-size: 16px;
+  border: 1px solid #de3241;
+}
+
+#books .search-bar .query-search:focus {
+  outline: none;
+}
+
+#books .search-bar .search-btn {
+  width: 95px;
+  margin-left: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 15px;
+  text-transform: uppercase;
+  border: 2px solid #de3241;
+  color: #ffffff;
+  background-color: #de3241;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+
+#books .search-bar .search-btn.focus {
+  outline: none;
+}
+
+#books .books_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+#books .books_container .item {
+  width: 30%;
+  height: 400px;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 50px;
+}
+
+#books .books_container .item .cover {
+  height: 70%;
+}
+
+#books .books_container .item .cover img {
+  height: 100%;
+  width: 100%;
+}
+
+#books .books_container .item .details {
+  padding: 10px;
 }
 /* start style of 404 error page */
 #notfound {
