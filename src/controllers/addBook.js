@@ -1,4 +1,8 @@
+const { postData } = require('../database/queries/postData');
+
 exports.addBook = (req, res) => {
-  console.log('add book done');
-  res.redirect('/');
+  postData(req.json()).then((data) => {
+    console.log(data);
+    res.redirect('/');
+  });
 }
