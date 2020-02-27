@@ -1,4 +1,7 @@
+const { getData } = require('../database/queries/getData');
+
 exports.getBook = (req, res) => {
-  console.log('get book done');
-  res.redirect('/');
+  getData().then((data) => {
+    res.send(data.rows);
+  });
 };
