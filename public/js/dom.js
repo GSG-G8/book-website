@@ -27,14 +27,14 @@ details.appendChild(author);
 
 const category = document.createElement('p');
 const categoryLabel = document.createElement('span');
-categoryLabel.textContent = 'Category: '
+categoryLabel.textContent = 'Category: ';
 category.appendChild(categoryLabel);
 category.textContent += 'Fantasy';
 details.appendChild(category);
 
 const publisher = document.createElement('p');
 const publisherLabel = document.createElement('span');
-publisherLabel.textContent = 'Publisher: '
+publisherLabel.textContent = 'Publisher: ';
 publisher.appendChild(publisherLabel);
 publisher.textContent += 'J.R.R. Tolkien';
 details.appendChild(publisher);
