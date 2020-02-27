@@ -13,6 +13,7 @@ if (process.env.NODE_ENV === 'test') {
 }
 const options = {
   connectionString: dbUrl,
+  ssl: true,
 };
 
 module.exports = new Pool(options);

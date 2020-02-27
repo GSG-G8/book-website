@@ -1,3 +1,5 @@
+const addButton = document.querySelector('.add-btn');
+
 function renderBook(data) {
   const container = document.querySelector('.books_container');
   const item = document.createElement('div');
@@ -39,15 +41,23 @@ function renderBook(data) {
   container.appendChild(item);
 }
 
-
-window.addEventListener('DOMContentLoaded', (event) => {
+function getBook() {
   fetch('https://g8-book-website.herokuapp.com/getBook')
     .then((response) => response.json())
     .then((data) => {
       if (data.length !== 0) {
         const container = document.querySelector('.books_container');
         container.textContent = '';
+        console.log(data);
         data.forEach((element) => renderBook(element));
       }
     });
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  getBook();
+});
+
+addButton.addEventListener('submit', (event) => {
+  getBook();
 });
