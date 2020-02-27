@@ -35,7 +35,7 @@
     <section class="add-books">
       <div class="container">
         <h2>Add <span>Books</span></h2>
-      <form action="/addbook">
+      <form action="/addbook" method="POST">
         <div class="form-group">
           <div>
             <div class="row">
@@ -61,10 +61,7 @@
               <label for="publisher">Publisher</label>
               <input type="text" id="publisher" name="publisher">
             </div>
-            <div class="row">
-              <label for="country">Publisher country</label>
-              <input type="text" id="country">
-            </div>
+            
           </div>
         </div>
         <button type="submit" class="add-btn">Add book</button>

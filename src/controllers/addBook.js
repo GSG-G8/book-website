@@ -1,8 +1,8 @@
 const { postData } = require('../database/queries/postData');
 
 exports.addBook = (req, res) => {
-  postData(req.json()).then((data) => {
-    console.log(data);
-    res.redirect('/');
-  });
-}
+  const bookInfo = req.body;
+  postData(bookInfo)
+    .then(() => res.redirect('/'))
+    .catch((err) => console.log('err:', err));
+};
