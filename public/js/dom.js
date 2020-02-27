@@ -1,43 +1,53 @@
-const container = document.querySelector('.books_container');
+function renderBook(data) {
+  const container = document.querySelector('.books_container');
+  const item = document.createElement('div');
+  const cover = document.createElement('div');
+  const thumbnail = document.createElement('img');
+  const details = document.createElement('div');
+  const title = document.createElement('h3');
+  const author = document.createElement('p');
+  const authorLabel = document.createElement('span');
+  const category = document.createElement('p');
+  const categoryLabel = document.createElement('span');
+  const publisher = document.createElement('p');
+  const publisherLabel = document.createElement('span');
 
-const item = document.createElement('div');
-item.classList.add('item');
+  title.textContent = data.title;
+  authorLabel.textContent = 'Author: ';
+  author.textContent += data.name;
+  categoryLabel.textContent = 'Category: ';
+  category.textContent += data.category;
+  publisherLabel.textContent = 'Publisher: ';
+  publisher.textContent += data.publisher_name;
 
-const cover = document.createElement('div');
-cover.classList.add('cover');
-const thumbnail = document.createElement('img');
-thumbnail.src = 'https://cdn.pastemagazine.com/www/system/images/photo_albums/hobbit-book-covers/large/photo_14601_0-5.jpg?1384968217';
-thumbnail.alt = 'the hobbit';
-cover.appendChild(thumbnail);
+  item.classList.add('item');
+  cover.classList.add('cover');
+  details.classList.add('details');
+  thumbnail.src = data.thumbnail;
+  thumbnail.alt = data.title;
 
-item.appendChild(cover);
+  cover.appendChild(thumbnail);
+  item.appendChild(cover);
+  details.appendChild(title);
+  author.appendChild(authorLabel);
+  details.appendChild(author);
+  category.appendChild(categoryLabel);
+  details.appendChild(category);
+  publisher.appendChild(publisherLabel);
+  details.appendChild(publisher);
+  item.appendChild(details);
+  container.appendChild(item);
+}
 
-const details = document.createElement('div');
-details.classList.add('details');
-const title = document.createElement('h3');
-title.textContent = 'The Hobbit';
-details.appendChild(title);
 
-const author = document.createElement('p');
-const authorLabel = document.createElement('span');
-authorLabel.textContent = 'Author: ';
-author.appendChild(authorLabel);
-author.textContent += 'J.R.R. Tolkien';
-details.appendChild(author);
-
-const category = document.createElement('p');
-const categoryLabel = document.createElement('span');
-categoryLabel.textContent = 'Category: '
-category.appendChild(categoryLabel);
-category.textContent += 'Fantasy';
-details.appendChild(category);
-
-const publisher = document.createElement('p');
-const publisherLabel = document.createElement('span');
-publisherLabel.textContent = 'Publisher: '
-publisher.appendChild(publisherLabel);
-publisher.textContent += 'J.R.R. Tolkien';
-details.appendChild(publisher);
-
-item.appendChild(details);
-container.appendChild(item);
+window.addEventListener('DOMContentLoaded', (event) => {
+  fetch('https://g8-book-website.herokuapp.com/getBook')
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.length !== 0) {
+        const container = document.querySelector('.books_container');
+        container.textContent = '';
+        data.forEach((element) => renderBook(element));
+      }
+    });
+});
