@@ -9,7 +9,7 @@
 
 ## Why we build this project?
 
-We build this project for people who are fond of rading books.So they can explore many several books by using a big database, also people can post data about specific book and it will be stored in database.And they can easily search for book by title of this book. People don't have to spend many hours searching in different sites for books. By one click they will reach their goal.
+We build this project for people who are fond of reading books.So they can explore many several books by using a big database, also people can post data about specific book and it will be stored in database.And they can easily search for book by title of this book. People don't have to spend many hours searching in different sites for books. By one click they will reach their goal.
 
 ## What is our project contain?
 
