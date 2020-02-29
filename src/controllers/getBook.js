@@ -1,7 +1,7 @@
 const { getData } = require('../database/queries/getData');
 
-exports.getBook = (req, res) => {
-  getData().then((data) => {
-    res.send(data.rows);
-  });
+exports.getBook = (req, res, next) => {
+  getData().then(({ rows }) => {
+    res.send(rows);
+  }).catch((err) => next(err));
 };

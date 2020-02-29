@@ -8,47 +8,38 @@ function renderBook(data) {
   const details = document.createElement('div');
   const title = document.createElement('h3');
   const author = document.createElement('p');
-  const authorLabel = document.createElement('span');
   const category = document.createElement('p');
-  const categoryLabel = document.createElement('span');
   const publisher = document.createElement('p');
-  const publisherLabel = document.createElement('span');
 
   title.textContent = data.title;
-  authorLabel.textContent = 'Author: ';
-  author.textContent += data.name;
-  categoryLabel.textContent = 'Category: ';
-  category.textContent += data.category;
-  publisherLabel.textContent = 'Publisher: ';
-  publisher.textContent += data.publisher_name;
+  author.textContent = `Author: ${data.authors_name}`;
+  category.textContent = `Category: ${data.category}`;
+  publisher.textContent = `Publisher: ${data.publisher_name}`;
 
   item.classList.add('item');
   cover.classList.add('cover');
   details.classList.add('details');
+  title.classList.add('title');
   thumbnail.src = data.thumbnail;
   thumbnail.alt = data.title;
 
   cover.appendChild(thumbnail);
   item.appendChild(cover);
   details.appendChild(title);
-  author.appendChild(authorLabel);
   details.appendChild(author);
-  category.appendChild(categoryLabel);
   details.appendChild(category);
-  publisher.appendChild(publisherLabel);
   details.appendChild(publisher);
   item.appendChild(details);
   container.appendChild(item);
 }
-
+// https://g8-book-website.herokuapp.com
 function getBook() {
-  fetch('https://g8-book-website.herokuapp.com/getBook')
+  fetch('/getBook')
     .then((response) => response.json())
     .then((data) => {
       if (data.length !== 0) {
         const container = document.querySelector('.books_container');
         container.textContent = '';
-        console.log(data);
         data.forEach((element) => renderBook(element));
       }
     });
@@ -60,4 +51,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 addButton.addEventListener('submit', (event) => {
   getBook();
+});
+
+
+// Search book
+const searchQuery = document.querySelector('.query-search');
+const searchBook = document.querySelector('.search-btn');
+searchBook.addEventListener('click', () => {
+  const filter = searchQuery.value.toUpperCase();
+  const items = document.getElementsByClassName('item');
+  for (let i = 0; i < items.length; i++) {
+    const title = items[i].querySelector('.title');
+    const titleVal = title.textContent;
+    if (titleVal.toUpperCase().indexOf(filter) > -1) {
+      items[i].style.display = '';
+    } else {
+      items[i].style.display = 'none';
+    }
+  }
 });
