@@ -27,6 +27,10 @@ Our project contains four main sections:
 * Then we sketch the schema and build database.
 * After that we collected all of our work together, and see the final result.
 
+## schema
+
+ ![alt text](https://f.top4top.io/p_1520ugi7t1.png "schema") 
+
 ## User stories
 
 * User can explore all books that stored in database.
