@@ -1,20 +1,15 @@
 const connection = require('../config/db_connection');
 const { dbBuild } = require('../config/db_build');
 const { getData } = require('../queries/getData');
-// const { postData } = require('../queries/postData');
 
 beforeAll(() => dbBuild());
 afterAll(() => connection.end());
-
-test('jest is working', () => {
-  expect(1).toBe(1);
-});
 
 test('test getData query', () => {
   return getData().then((data) => {
     const actual = data.rows[0];
     const expected = {
-      id: 1, title: 'The Hobbit', publisher_name: 'Houghton Mifflin Harcourt', category: 'Fantasy', name: 'J.R.R. Tolkien', reserved: false, thumbnail: 'http://books.google.com/books/content?id=OlCHcjX0RT4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+      id: 1, title: 'The Hobbit', publisher_name: 'Houghton Mifflin Harcourt', category: 'Fantasy', authors_name: 'J.R.R. Tolkien', reserved: false, thumbnail: 'https://cdn.pastemagazine.com/www/system/images/photo_albums/hobbit-book-covers/large/photo_14601_0-5.jpg?1384968217',
     };
     expect(actual).toEqual(expected);
   });

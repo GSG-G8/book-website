@@ -1,6 +1,7 @@
 const app = require('./app');
 
-app.listen(app.get('port'), () => {
+const port = app.get('port');
+app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(`http://localhost:${app.get('port')}`);
+  console.log(`http://localhost:${port}`);
 });
