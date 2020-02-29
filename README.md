@@ -9,7 +9,7 @@
 
 ## Why we build this project?
 
-We build this project for people who are fond of reading books.So they can explore many several books by using a big database, also people can post data about specific book and it will be stored in database.And they can easily search for book by title of this book. People don't have to spend many hours searching in different sites for books. By one click they will reach their goal.
+We build this project for people who are fond of reading books. So they can explore many several books by using a big database, also people can post data about specific book and it will be stored in database. And they can easily search for book by title of this book. People don't have to spend many hours searching in different sites for books. By one click they will reach their goal.
 
 ## What is our project contain?
 
@@ -22,7 +22,7 @@ Our project contains four main sections:
 ## How the process of building our project done?
 
 * We start by sketching our site, and deciding how the design will be.
-* Then we set up file architecture.
+* Then we set up file structure.
 * Then we divied our tasks.
 * Then we sketch the schema and build database.
 * After that we collected all of our work together, and see the final result.
